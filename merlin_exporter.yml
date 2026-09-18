@@ -1,0 +1,12 @@
+# Merlin Exporter Configuration
+# Example configuration for the RCN/Astound Merlin portal exporter.
+
+merlin:
+  # URL of the Merlin portal endpoint (no trailing slash).
+  url: "https://pa.speedtest.rcn.net/merlin"
+
+telemetry:
+  # Address to listen on for Prometheus scraping.
+  listen_address: ":9527"
+  # Path to expose Prometheus metrics on.
+  metrics_path: "/metrics"
