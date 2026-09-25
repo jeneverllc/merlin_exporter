@@ -5,8 +5,8 @@
     "name": "adktjjq",
     "namespace": "default",
     "uid": "79ebadc2-89c8-4be6-a880-763187d9b11e",
-    "resourceVersion": "1789738384387010",
-    "generation": 5,
+    "resourceVersion": "1790073329926997",
+    "generation": 11,
     "creationTimestamp": "2026-09-18T11:23:24Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "2231119059476480"
@@ -15,7 +15,7 @@
       "grafana.app/createdBy": "user:cfycstbw8n7y8b",
       "grafana.app/saved-from-ui": "Grafana v13.2.1 (56cd3e9288)",
       "grafana.app/updatedBy": "user:cfycstbw8n7y8b",
-      "grafana.app/updatedTimestamp": "2026-09-18T13:33:04Z"
+      "grafana.app/updatedTimestamp": "2026-09-22T10:35:29Z"
     }
   },
   "spec": {
@@ -37,7 +37,7 @@
         }
       }
     ],
-    "cursorSync": "Off",
+    "cursorSync": "Crosshair",
     "editable": true,
     "elements": {
       "panel-1": {
@@ -64,7 +64,7 @@
                       "spec": {
                         "editorMode": "code",
                         "expr": "merlin_downstream_channel_power_dbmv",
-                        "legendFormat": "{{frequency}}",
+                        "legendFormat": "{{frequency}} MHz",
                         "range": true
                       }
                     },
@@ -664,7 +664,7 @@
               },
               "fieldConfig": {
                 "defaults": {
-                  "unit": "dBmV",
+                  "unit": "dB",
                   "thresholds": {
                     "mode": "absolute",
                     "steps": [
@@ -889,8 +889,10 @@
                         "name": "dfycuozmrb1moa"
                       },
                       "spec": {
+                        "editorMode": "code",
                         "expr": "merlin_downstream_channel_snr_db",
-                        "legendFormat": "{{channel}}"
+                        "legendFormat": "{{frequency}} MHz",
+                        "range": true
                       }
                     },
                     "refId": "A",
@@ -1002,8 +1004,10 @@
                         "name": "dfycuozmrb1moa"
                       },
                       "spec": {
+                        "editorMode": "code",
                         "expr": "merlin_upstream_channel_power_dbmv",
-                        "legendFormat": "{{channel}}"
+                        "legendFormat": "{{frequency}} MHz",
+                        "range": true
                       }
                     },
                     "refId": "A",
@@ -1118,7 +1122,7 @@
                         "editorMode": "code",
                         "expr": "irate(merlin_downstream_channel_correctable_errors_total[5m])",
                         "instant": false,
-                        "legendFormat": "{{channel}} - Correctable"
+                        "legendFormat": "{{frequency}} MHz"
                       }
                     },
                     "refId": "A",
@@ -1232,7 +1236,7 @@
                       "spec": {
                         "editorMode": "code",
                         "expr": "merlin_upstream_channel_snr_db",
-                        "legendFormat": "{{channel}}",
+                        "legendFormat": "{{frequency}} MHz",
                         "range": true
                       }
                     },
@@ -1259,8 +1263,8 @@
                 },
                 "tooltip": {
                   "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
+                  "mode": "multi",
+                  "sort": "desc"
                 }
               },
               "fieldConfig": {
@@ -1348,7 +1352,7 @@
                         "editorMode": "code",
                         "expr": "irate(merlin_upstream_channel_correctable_errors_total[5m])",
                         "instant": false,
-                        "legendFormat": "{{channel}} - Correctable"
+                        "legendFormat": "{{frequency}} MHz"
                       }
                     },
                     "refId": "A",
@@ -1463,7 +1467,7 @@
                         "editorMode": "code",
                         "expr": "irate(merlin_downstream_channel_uncorrectable_errors_total[5m])",
                         "instant": false,
-                        "legendFormat": "{{channel}} - Uncorrectable"
+                        "legendFormat": "{{frequency}} MHz"
                       }
                     },
                     "refId": "B",
@@ -1578,7 +1582,7 @@
                         "editorMode": "code",
                         "expr": "irate(merlin_upstream_channel_uncorrectable_errors_total[5m])",
                         "instant": false,
-                        "legendFormat": "{{channel}} - Uncorrectable"
+                        "legendFormat": "{{frequency}} MHz"
                       }
                     },
                     "refId": "B",
@@ -1802,7 +1806,7 @@
                   "maxColumnCount": 3,
                   "columnWidthMode": "standard",
                   "rowHeightMode": "custom",
-                  "rowHeight": 240,
+                  "rowHeight": 220,
                   "items": [
                     {
                       "kind": "AutoGridLayoutItem",
@@ -1838,7 +1842,7 @@
                   "maxColumnCount": 3,
                   "columnWidthMode": "standard",
                   "rowHeightMode": "custom",
-                  "rowHeight": 240,
+                  "rowHeight": 220,
                   "items": [
                     {
                       "kind": "AutoGridLayoutItem",
@@ -1931,7 +1935,7 @@
       "timezone": "browser",
       "from": "now-6h",
       "to": "now",
-      "autoRefresh": "",
+      "autoRefresh": "30s",
       "autoRefreshIntervals": [
         "5s",
         "10s",

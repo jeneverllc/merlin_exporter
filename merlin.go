@@ -359,7 +359,7 @@ func safeString(v interface{}) string {
 	case string:
 		return val
 	case float64:
-		return fmt.Sprintf("%.0f", val)
+		return fmt.Sprintf("%.2f", val)
 	default:
 		return fmt.Sprintf("%v", v)
 	}
@@ -374,7 +374,7 @@ func (m *MerlinAPI) emitDownstreamMetrics(ch chan<- prometheus.Metric, streams [
 		if err != nil {
 			log.Printf("Error extracting numeric value from frequency '%s': %v", freqStr, err)
 		} else {
-			freq = fmt.Sprintf("%.0f", freqVal)
+			freq = fmt.Sprintf("%.2f", freqVal)
 		}
 
 		labels := []string{freq}
@@ -475,7 +475,7 @@ func (m *MerlinAPI) emitUpstreamMetrics(ch chan<- prometheus.Metric, streams []u
 		if err != nil {
 			log.Printf("Error extracting numeric value from frequency '%s': %v", freqStr, err)
 		} else {
-			freq = fmt.Sprintf("%.0f", freqVal)
+			freq = fmt.Sprintf("%.2f", freqVal)
 		}
 
 		labels := []string{freq}
